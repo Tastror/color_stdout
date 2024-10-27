@@ -304,7 +304,7 @@ if __name__ == "__main__":
     print(11111111, color="red")
     # str with "," will be split
     print(22222222, color="bg_dark_red, dark_green")
-    # list is also supported, but no "," in str inner list
+    # list or tuple is also supported, but no "," in str inner list / tuple
     print(33333333, color=("italic", "underline", "bold", "blink"), end_reset=False)
     # thongh 44444444's end_reset == True, it won't work since no color specified
     print(44444444)
