@@ -50,6 +50,7 @@ def color_to_code(
         if type(i) == str:
             if i in locals():
                 result_code += str(locals()[i]) + ";"
+            # TODO: (to delete) should we add this?
             elif i.isdigit():
                 result_code += i + ";"
         elif type(i) == int:
@@ -67,7 +68,8 @@ def format_color(
     end_reset: bool = True  # only works when color is not None
 ) -> str:
     """
-    end_reset: only works when color is not None
+    param:
+        end_reset: only works when color is not None
     """
     if color is None:
         return f"{text}"
@@ -86,7 +88,8 @@ def print(
     flush: bool = True  # important, different from usual print
 ) -> None:
     """
-    end_reset: only works when color is not None
+    param:
+        end_reset: only works when color is not None
     """
     if color is None:
         usual_print(*values, sep=sep, end=end)
@@ -109,7 +112,9 @@ def input(
     flush: bool = True  # important
 ) -> str:
     """
-    end_reset: only works when color is not None
+    param:
+        end: default is "", not "\\n"
+        end_reset: only works when color is not None
     """
     print(*prompts, sep=sep, end=end, color=color, end_reset=True, flush=flush)
     if input_color is None:
@@ -245,7 +250,9 @@ def print_there(
     flush: bool = True
 ):
     """
-    end_reset: only works when color is not None
+    param:
+        end: default is "", not "\\n"
+        end_reset: only works when color is not None
     """
     move(line, column, flush=False)
     print(*value, sep=sep, end=end, color=color, end_reset=end_reset, flush=flush)
@@ -259,7 +266,9 @@ def print_still(
     flush: bool = True
 ):
     """
-    end_reset: only works when color is not None
+    param:
+        end: default is "", not "\\n"
+        end_reset: only works when color is not None
     """
     store_cursor(flush=False)
     print(*value, sep=sep, end=end, color=color, end_reset=end_reset, flush=False)
@@ -274,7 +283,9 @@ def print_thisline(
     flush: bool = True
 ):
     """
-    end_reset: only works when color is not None
+    param:
+        end: default is "", not "\\n"
+        end_reset: only works when color is not None
     """
     clean_line_and_to_start(flush=False)
     print(*value, sep=sep, end=end, color=color, end_reset=end_reset, flush=flush)
@@ -322,4 +333,4 @@ if __name__ == "__main__":
         time.sleep(0.2)
     print(12312321312123213, end="")
     time.sleep(0.2)
-    print_thisline("thisline")    
+    print_thisline("clear this line")    
