@@ -9,7 +9,6 @@ pip install -e .
 ## test
 
 ```shell
-cd test
-python test_crstdout.py
-python test_crchoose.py
+python ./test/test_crstdout.py
+python ./test/test_crchoose.py
 ```
